@@ -33,7 +33,6 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps): JSX.Element {
-  console.log(post);
   const total = post.data.content.reduce((acc, current) => {
     acc += current.heading.split(' ').length;
 
