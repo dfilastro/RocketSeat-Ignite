@@ -1,5 +1,6 @@
 import { Box, Flex, HStack, Image, Stack } from '@chakra-ui/react';
 import Head from 'next/head';
+import { Carousel } from '../components/Carousel';
 import { Header } from '../components/Header';
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
       <Image
         position='absolute'
         zIndex='-99'
-        minW='100vw'
+        minW='100%'
         // h='335'
         // bgSize='cover'
         src='https://user-images.githubusercontent.com/90292951/169844153-5d37ee5c-5014-4ef7-b4e9-db4581ee68f2.svg'
@@ -67,6 +68,7 @@ export default function Home() {
           <Box>Então escolha seu continente</Box>
         </Flex>
       </Stack>
+      <Carousel />
     </>
   );
 }
