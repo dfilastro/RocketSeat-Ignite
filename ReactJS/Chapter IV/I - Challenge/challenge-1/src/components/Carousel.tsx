@@ -1,9 +1,10 @@
-import { Center, Flex, Image, Stack } from '@chakra-ui/react';
+import { Center, Flex, Image, Link, Stack } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 
 SwiperCore.use([Navigation, Pagination]);
 
+// import 'swiper/css/bundle';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -12,8 +13,9 @@ import { CarouselImg } from './CarouselImg';
 
 export function Carousel() {
   return (
-    <Flex marginBottom='100px' mt='52px'>
+    <Flex marginBottom='100px' mt='52px' pr='100px' pl='100px'>
       <Swiper
+        swiper-button-white
         spaceBetween={50}
         slidesPerView={1}
         navigation
@@ -23,11 +25,13 @@ export function Carousel() {
         onSlideChange={() => console.log('slide change')}
       >
         <SwiperSlide>
-          <CarouselImg
-            title='Europa'
-            subtitle='O continente mais antigo.'
-            backgroundImg='https://user-images.githubusercontent.com/90292951/169891035-4cd9604d-d9ae-4642-8480-a5bf72e624bc.svg'
-          />
+          <Link href={'/continent/europe'}>
+            <CarouselImg
+              title='Europa'
+              subtitle='O continente mais antigo.'
+              backgroundImg='https://user-images.githubusercontent.com/90292951/169891035-4cd9604d-d9ae-4642-8480-a5bf72e624bc.svg'
+            />
+          </Link>
         </SwiperSlide>
 
         <SwiperSlide>
