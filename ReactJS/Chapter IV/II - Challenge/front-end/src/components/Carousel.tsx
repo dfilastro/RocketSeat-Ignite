@@ -15,7 +15,12 @@ import 'swiper/css/autoplay';
 
 export function Carousel() {
   return (
-    <Flex marginBottom='100px' mt='52px' pr='100px' pl='100px'>
+    <Flex
+      marginBottom={['20px', '40px', '60px', '100px']}
+      mt={['11px', '22px', '33px', '52px']}
+      pr={['20px', '40px', '60px', '100px']}
+      pl={['20px', '40px', '60px', '100px']}
+    >
       <Swiper
         spaceBetween={50}
         slidesPerView={1}

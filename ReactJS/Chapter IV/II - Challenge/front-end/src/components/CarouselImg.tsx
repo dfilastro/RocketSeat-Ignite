@@ -9,7 +9,7 @@ interface CarouselImgProps {
 export function CarouselImg({ title, subtitle, backgroundImg }: CarouselImgProps) {
   return (
     <Center
-      h='450px'
+      h={['180px', '270px', '360px', '450px']}
       bgImage={backgroundImg}
       bgSize='cover'
       bgPosition='center'
@@ -19,10 +19,10 @@ export function CarouselImg({ title, subtitle, backgroundImg }: CarouselImgProps
       gap='16px'
       fontWeight='700'
     >
-      <Flex color='white' fontSize='48px'>
+      <Flex color='white' fontSize={['20px', '25px', '30px', '48px']}>
         {title}
       </Flex>
-      <Flex color='white' fontSize='24px'>
+      <Flex color='white' fontSize={['10px', '14px', '18px', '24px']}>
         {subtitle}
       </Flex>
     </Center>
