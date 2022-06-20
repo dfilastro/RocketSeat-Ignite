@@ -1,17 +1,26 @@
 import { Box, Flex, Grid, GridItem, Image, Stack } from '@chakra-ui/react';
 import CardsCountries from '../../components/CardsInfoCountries';
 import CityCards from '../../components/CityCards';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-export default function Continent() {
+import api from '../../services/api';
+import city from '../../services/city-api';
+import HeaderSlug from '../../components/HeaderSlug';
+
+export default function Continent({ continent }) {
+  console.log(continent);
+
   return (
     <>
+      <HeaderSlug />
       <Stack h='500px'>
         <Image
           height='500px'
           position='absolute'
           zIndex='-99'
           minW='100%'
-          src='https://user-images.githubusercontent.com/90292951/174315831-1c21fcf3-1271-4346-ad08-045f487e2f57.png'
+          // src='https://user-images.githubusercontent.com/90292951/174315831-1c21fcf3-1271-4346-ad08-045f487e2f57.png'
+          src={continent.coverImg}
           fit='cover'
         />
         <Stack>
@@ -25,21 +34,19 @@ export default function Continent() {
             height='500px'
             paddingBottom='59px'
           >
-            Europa
+            {continent.name}
           </Flex>
         </Stack>
       </Stack>
 
       <Flex pt='80px' pb='80px' pr='140px' pl='140px' gap='70px'>
         <Box w='50%' fontSize='24px' textAlign='justify'>
-          A Europa é, por convenção, um dos seis continentes do mundo. Compreendendo a península
-          ocidental da Eurásia, a Europa geralmente divide-se da Ásia a leste pela divisória de
-          águas dos montes Urais, o rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste
+          {continent.description}
         </Box>
         <Flex m='auto' alignItems='center' w='40%' justifyContent='space-between'>
-          <CardsCountries num={50} desc='paises' />
-          <CardsCountries num={60} desc='línguas' />
-          <CardsCountries num={27} desc='cidades +100' />
+          <CardsCountries num={continent.countries} desc='paises' />
+          <CardsCountries num={continent.languages} desc='línguas' />
+          <CardsCountries num={continent.cities} desc='cidades +100' />
         </Flex>
       </Flex>
 
@@ -84,3 +91,36 @@ export default function Continent() {
     </>
   );
 }
+
+export async function getStaticProps({ params }) {
+  const { data } = await api.get(`${params.slug}`);
+  const cityData = await city.get(`${params.slug}`);
+
+  // console.log(cityData.data);
+
+  const continent = {
+    uid: data[0].continentId,
+    name: data[0].name,
+    description: data[0].description,
+    countries: data[0].countries,
+    languages: data[0].languages,
+    cities: data[0].cities,
+    coverImg: cityData.data[2].image,
+  };
+  // console.log(continent);
+
+  return { props: { continent } };
+}
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [
+      { params: { slug: '1' } },
+      { params: { slug: '2' } },
+      { params: { slug: '3' } },
+      { params: { slug: '4' } },
+      { params: { slug: '5' } },
+    ],
+    fallback: false,
+  };
+};
