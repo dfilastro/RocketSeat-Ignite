@@ -1,14 +1,16 @@
-import { Center, Flex, Image, Link, Stack } from '@chakra-ui/react';
+import { CarouselImg } from './CarouselImg';
+import { Flex, Link } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 // import 'swiper/css/bundle';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { CarouselImg } from './CarouselImg';
+import 'swiper/css/autoplay';
+
 // import 'swiper/css/scrollbar';
 
 export function Carousel() {
@@ -20,8 +22,9 @@ export function Carousel() {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
+        autoplay={{ delay: 5000 }}
       >
         <SwiperSlide>
           <Link href={'/continent/1'} style={{ textDecoration: 'none' }}>
@@ -64,7 +67,7 @@ export function Carousel() {
           <Link href={'/continent/5'} style={{ textDecoration: 'none' }}>
             <CarouselImg
               title='África e Oceania'
-              subtitle='EUA mais dois.'
+              subtitle='Diversidade'
               backgroundImg='https://media.iatiseguros.com/wp-content/uploads/sites/6/2019/11/22075918/roteiro-10-dias-singapura.jpg'
             />
           </Link>
