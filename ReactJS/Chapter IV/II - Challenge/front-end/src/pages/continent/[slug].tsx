@@ -1,5 +1,5 @@
-import { Box, Flex, Grid, GridItem, Image, Stack } from '@chakra-ui/react';
-import CardsCountries from '../../components/CardsInfoCountries';
+import { Flex, Grid, Image, Stack } from '@chakra-ui/react';
+import CardsInfoCountries from '../../components/CardsInfoCountries';
 import CityCards from '../../components/CityCards';
 
 import api from '../../services/api';
@@ -30,14 +30,12 @@ interface ContinentFullProps {
 }
 
 export default function Continent({ continent, cities }: ContinentFullProps) {
-  console.log(cities);
-
   return (
     <>
       <HeaderSlug />
-      <Stack h='500px'>
+      <Stack h={['100px', '200px', '300px', '500px']}>
         <Image
-          height='500px'
+          height={['100px', '200px', '300px', '500px']}
           position='absolute'
           zIndex='-99'
           minW='100%'
@@ -46,40 +44,70 @@ export default function Continent({ continent, cities }: ContinentFullProps) {
         />
         <Stack>
           <Flex
-            fontSize='48px'
+            fontSize={['10px', '20px', '30px', '48px']}
             fontWeight='600'
             color='white'
-            ml='140px'
+            ml={['28px', '56px', '84px', '140px']}
             display='flex'
             alignItems='flex-end'
-            height='500px'
-            paddingBottom='59px'
+            height={['100px', '200px', '300px', '500px']}
+            paddingBottom={['12px', '24px', '36px', '59px']}
           >
             {continent.name}
           </Flex>
         </Stack>
       </Stack>
 
-      <Flex pt='80px' pb='80px' pr='140px' pl='140px' gap='70px'>
-        <Box w='50%' fontSize='24px' textAlign='justify'>
+      <Flex
+        flexDir={['column', 'column', 'column', 'row']}
+        pt={['16px', '32px', '48px', '80px']}
+        pb={['16px', '32px', '48px', '80px']}
+        pr={['28px', '56px', '84px', '140px']}
+        pl={['28px', '56px', '84px', '140px']}
+        gap={['14px', '28px', '42px', '70px']}
+      >
+        <Flex
+          w={['100%', '100%', '100%', '50%']}
+          fontSize={['10px', '15px', '24px']}
+          textAlign='justify'
+        >
           {continent.description}
-        </Box>
-        <Flex m='auto' alignItems='center' w='40%' justifyContent='space-between'>
-          <CardsCountries num={continent.countries} desc='paises' />
-          <CardsCountries num={continent.languages} desc='línguas' />
-          <CardsCountries num={continent.cities} desc='cidades +100' />
+        </Flex>
+        <Flex
+          m='auto'
+          alignItems='center'
+          w={['80%', '80%', '80%', '40%']}
+          justifyContent='space-between'
+        >
+          <CardsInfoCountries num={continent.countries} desc='paises' />
+          <CardsInfoCountries num={continent.languages} desc='línguas' />
+          <CardsInfoCountries num={continent.cities} desc='cidades +100' />
         </Flex>
       </Flex>
 
-      <Stack pl='140px' pr='140px' pb='80px'>
-        <Flex fontSize='36px' fontWeight='500' color='gray.800' pb='44px'>
+      <Stack
+        pl={['28px', '56px', '84px', '140px']}
+        pr={['28px', '56px', '84px', '140px']}
+        pb={['16px', '32px', '48px', '80px']}
+      >
+        <Flex
+          fontSize={['10px', '16px', '24px', '36px']}
+          fontWeight='500'
+          color='gray.800'
+          pb={['9px', '18px', '27px', '44px']}
+        >
           Cidades +100
         </Flex>
 
-        <Grid templateColumns='repeat(5, 1fr)' gap='6px' justifyItems='center'>
+        <Grid
+          templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(5, 1fr)']}
+          gap={['1px', '2px', '3px', '6px']}
+          justifyItems='center'
+        >
           {cities.map((city) => {
             return (
               <CityCards
+                key={city.cityId}
                 city={city.name}
                 country={city.country}
                 img={city.image}

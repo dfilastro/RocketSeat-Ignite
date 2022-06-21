@@ -8,10 +8,10 @@ interface CardsCountriesProps {
 export default function CardsInfoCountries({ num, desc }: CardsCountriesProps) {
   return (
     <Stack alignItems='center'>
-      <Flex fontSize='48px' fontWeight='600' color='highlight'>
+      <Flex fontSize={['20px', '30px', '48px']} fontWeight='600' color='highlight'>
         {num}
       </Flex>
-      <Flex fontSize='24px' color='gray.800' fontWeight='600'>
+      <Flex fontSize={['10px', '15px', '24px']} color='gray.800' fontWeight='600'>
         {desc}
       </Flex>
     </Stack>

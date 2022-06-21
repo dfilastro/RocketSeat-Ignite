@@ -35,7 +35,7 @@ export default function Home() {
               w={['160px', '320px', '360px', '524px']}
               fontWeight='400'
               fontSize={['8', '12', '16', '20']}
-              lineHeight={['11px', '18px', '22px', '30px']}
+              lineHeight={['12px', '18px', '22px', '30px']}
             >
               Chegou a hora de tirar do papel a viagem que você sempre sonhou.{' '}
             </Flex>
@@ -96,7 +96,7 @@ export default function Home() {
           flexDir='column'
           alignItems='center'
           fontSize={['12px', '16px', '20px', '36px']}
-          pt={['11px', '22px', '33px', '56px']}
+          pt={['22px', '33px', '56px']}
         >
           <Box>Vamos nessa?</Box>
           <Box>Então escolha seu continente</Box>
