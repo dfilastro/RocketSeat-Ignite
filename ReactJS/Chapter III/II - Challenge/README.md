@@ -1,5 +1,5 @@
 <p align="center">
-   :computer: Dashboard developed from scratch. Project developed for the Rocketseat - Ignite - Chapter III challenge | <a href="https://www.rocketseat.com.br/">Rocketseat</a>
+   :computer: Dashboard developed from scratch. Project developed for the Rocketseat - Ignite - Chapter III Challenge | <a href="https://www.rocketseat.com.br/">Rocketseat</a>
 </p>
 
 <div align="center">
@@ -8,9 +8,6 @@
   </sub>
 </div>
 
-<p align="center">
- <img src="https://user-images.githubusercontent.com/90292951/168811294-76740f2a-3b69-4f7b-9dc7-8908d0a88a30.jpg"/>
-</p>
 
 # 📌 Contents
 - [Home Page](#computer-home-page)
@@ -41,10 +38,12 @@ This project was made using the follow technologies:
 
 ```bash
 # Clone Repository
-$ git clone https://github.com/dfilastro/teste-teamsoft.git
+$ git clone https://github.com/dfilastro/Rocketseat-Ignite.git
 ```
 
 ```bash
+$ cd /"Chapter III"
+$ cd /"II - Challenge"
 # Install Dependencies
 $ yarn
 ```
